@@ -6,7 +6,7 @@ import twitter
 import yaml
 
 from image_generation import create_image, crop_image
-
+from stuff import titles, things, datas, adjectives, data_qualifiers, task_qualifiers
 
 def choose(lst):
     n = len(lst)
@@ -24,139 +24,12 @@ def simplify(string):
     return string
 
 
-titles = [
-    "Cheese",
-    "Church",
-    "Toulouse",
-    "Paris",
-    "Plane",
-    "SEX",
-    "Pirate",
-    "Ninja",
-    "Fishnet",
-    "Gladiator",
-    "CVPR",
-    "Auto",
-    "HyperDeep",
-    "AUTHOR",
-    "NONAME",
-    "[ReplaceBeforeSubmission]",
-    "Brain",
-    "Universal",
-    "Killer",
-]
-tasks = [
-    "classification",
-    "detection",
-    "segmentation",
-    "instance segmentation",
-    "removal",
-    "inpainting",
-    "topic modeling",
-    "style transfer",
-    "super-resolution",
-    "denoising",
-    "zero-shot learning",
-]
-things = [
-    "rabbits",
-    "cats",
-    "microwaves",
-    "alien signals",
-    "racism",
-    "bats",
-    "super-heroes",
-    "mac&cheese",
-    "glasses",
-    "beer foam",
-    "outliers",
-    "nanorobots",
-    "lost treasures",
-    "chickens",
-    "dogs",
-    "raccoons",
-    "thiefs",
-    "hair",
-    "majijuana",
-    "vehicles",
-    "Boeing 737-MAX",
-    "fake money",
-    "giftable Eiffel Tower miniatures",
-]
-datas = [
-    "RGB images",
-    "brain-electro-activities",
-    "children books",
-    "fisheye videos",
-    "Dailymotion comments",
-    "Reddit usernames",
-    "open source code",
-    "satellite images",
-    "3D point clouds",
-    "missing data",
-    "StreetView panoramas",
-    "Tinder profile pictures",
-    "vacation pictures",
-    "autonomous vehicles sensors",
-    "PET scans",
-    "3D models",
-    "stereo imaging",
-    "RGB-D data",
-    "raw Apache logs",
-    "disassembled Java",
-    "ATM receipts",
-    "traffic cameras",
-    "user webcams",
-    "HDR pictures",
-    "3D movies",
-    "radar, sonar and that last one that uses light",
-]
-
-data_qualifiers = [
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "noisy labeled",
-    "industrial",
-    "expensive",
-    "unlabeled",
-]
-task_qualifiers = [
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "improving",
-    "pushing further",
-    "better",
-    "SOTA",
-    "weakly-supervised",
-    "semi-supervised",
-]
 
 title = choose(titles)
 net_qualifiers = " ".join(
     filter(
         maybe(0.20),
-        [
-            "new",
-            "reinforcement learning of",
-            "lightweight",
-            "scalable",
-            "embedded",
-            "deep",
-            "adversarial",
-            "residual",
-            "convolutional",
-            "recurrent",
-        ],
+        adjectives
     )
 )
 task = choose(tasks)
