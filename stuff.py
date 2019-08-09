@@ -1,18 +1,41 @@
 titles = [
-    "Cheese",
-    "Church",
-    "Toulouse",
-    "Paris",
-    "Plane",
-    "SEX",
-    "Pirate",
-    "Ninja",
-    "Fishnet",
-    "Gladiator",
-    "CVPR",
-    "Auto",
+    "ChEESE",
+    "MaxPower",
+    "9000-Layers",
+    "CVPR-Ready",
+    "Excellent",
+    "GNU/Linux",
+    "Soft",
+    "Hard",
+    "LeCun",
+    "Bengio",
+    "Hinton",
+    "Schmidhuber"
+    "Fast",
     "HyperDeep",
-    "AUTHOR",
+    "Wasserstein",
+    "YOLO",
+    "ROFLMAO",
+    "MARVEL",
+    "Wonder",
+    "Matrix",
+    "Trinity",
+    "God",
+    "Diffusion",
+    "AGI",
+    "Madman",
+    "CRAZY",
+    "StrongAI",
+    "SoftAI",
+    "WeakAI",
+    "Vision",
+    "BetterEye",
+    "Weather",
+    "Satellite",
+    "Driver",
+    "Amazing",
+    "Great",
+    "DeepBlue",
     "NONAME",
     "[ReplaceBeforeSubmission]",
     "Brain",
@@ -32,6 +55,7 @@ tasks = [
     "super-resolution",
     "denoising",
     "zero-shot learning",
+    "retrieval",
 ]
 
 things = [
@@ -44,7 +68,7 @@ things = [
     "super-heroes",
     "mac&cheese",
     "glasses",
-    "beer foam",
+    "beer cans",
     "outliers",
     "nanorobots",
     "lost treasures",
@@ -58,6 +82,19 @@ things = [
     "Boeing 737-MAX",
     "fake money",
     "giftable Eiffel Tower miniatures",
+    "anomalies",
+    "radioactivty",
+    "bombs",
+    "cheesecackes",
+    "insulting tweets",
+    "forgotten passwords",
+    "gold bars",
+    "money",
+    "salmon",
+    "sushi",
+    "books",
+    "child",
+    "record"
 ]
 
 datas = [
@@ -87,6 +124,13 @@ datas = [
     "HDR pictures",
     "3D movies",
     "radar, sonar and that last one that uses light",
+    "NASA photos",
+    "digital paintings",
+    "Photoshopped videos",
+    "intrusion logs",
+    "multispectral data",
+    "black&white sketches",
+    "children drawings",
 ]
 
 adjectives = [
@@ -100,6 +144,10 @@ adjectives = [
     "residual",
     "convolutional",
     "recurrent",
+    "bio-inspired",
+    "spiking",
+    "generative",
+    "adversarial",
 ]
 
 data_qualifiers = [
@@ -114,6 +162,11 @@ data_qualifiers = [
     "industrial",
     "expensive",
     "unlabeled",
+    "scarce",
+    "anomalous",
+    "rare",
+    "crowdsourced",
+    "simulated",
 ]
 task_qualifiers = [
     "",
@@ -129,5 +182,8 @@ task_qualifiers = [
     "SOTA",
     "weakly-supervised",
     "semi-supervised",
+    "improved",
+    "enhanced",
+    "fine-grained",
 ]
 
