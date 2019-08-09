@@ -10,7 +10,7 @@ import twitter
 import warnings
 import yaml
 
-from image_generation import create_image, crop_image
+from image_generation import create_image, trim
 from stuff import adjectives, data_qualifiers, datas, task_qualifiers, tasks, things, titles
 
 # Ignore ResourceWarning due to unclosed SSLSocket by the Twitter http request
@@ -86,7 +86,7 @@ if __name__ == "__main__":
 
         # Generate fake PDF screenshot
         image = create_image(title, authors, institutions)
-        image = crop_image(image)
+        image = trim(image)
         logger.debug("LaTeX -> PDF -> image generation done")
 
         # Publish to Twitter

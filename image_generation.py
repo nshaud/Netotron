@@ -1,12 +1,11 @@
 import fitz
 import itertools
 import math
-import numpy as np
 import tempfile
 import random
 import os
 
-from PIL import Image, ImageOps
+from PIL import Image, ImageOps, ImageChops
 from pylatex import Document, Command
 from pylatex.utils import NoEscape
 from typing import List
@@ -73,7 +72,7 @@ def create_image(title: str, authors: List[str], institutions: List[str]) -> Ima
     return image
 
 
-def crop_image(image):
+def trim(image):
     """ Crops an image by removing all extra white space around the content (i.e. zoom on the actual
         content bounding rectangle).
 
@@ -83,17 +82,14 @@ def crop_image(image):
     Returns:
         PIL.Image -- the cropped result
     """
-    # Convert to numpy array for easier manipulation
-    im = np.asarray(image)
-    # Crop the image by removing all extra white space
-    mask = ~im
-    rows = np.any(mask, axis=1)
-    cols = np.any(mask, axis=0)
-    rmin, rmax = np.where(rows)[0][[0, -1]]
-    cmin, cmax = np.where(cols)[0][[0, -1]]
-    cropped = im[rmin:rmax, cmin:cmax]
-    # Convert back to PIL Image
-    image = Image.fromarray(cropped.astype("uint8"), "RGB")
+    # Generate a background image based on the color of the top-left pixel
+    bg = Image.new(image.mode, image.size, image.getpixel((0, 0)))
+    # Compute difference with the actual generated
+    diff = ImageChops.difference(image, bg)
+    # Get the bounding box of the difference
+    bbox = diff.getbbox()
+    # Crop the image
+    image = image.crop(bbox)
     # Add 20px white padding
     image = ImageOps.expand(image, 20, fill="white")
     return image
