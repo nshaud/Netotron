@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "netotron"
+version = "0.0.1"
+description = "Twitter bot to generate random deep learning articles"
+authors = ["Your Name <you@example.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = ">=3.6"
+titlecase = "^0.12.0"
+python-twitter = "^3.5"
+pyyaml = "^5.1"
+Pillow = "^6.1"
+pylatex = "^1.3"
+pymupdf = "=1.13.20"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
