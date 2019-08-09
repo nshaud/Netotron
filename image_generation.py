@@ -2,7 +2,9 @@ import fitz
 import itertools
 import math
 import numpy as np
+import tempfile
 import random
+import os
 
 from PIL import Image, ImageOps
 from pylatex import Document, Command
@@ -34,8 +36,6 @@ def pdf_to_png(pdf_file, resolution=200, n_pages=None, alpha=True):
 
 
 def create_image(title, authors, institutions):
-    filename = "basic_maketitle"
-    filepath = f"{filename}.pdf"
     n_institutions = len(institutions)
     doc = Document()
     doc.preamble.append(Command("usepackage", "authblk"))
@@ -51,8 +51,10 @@ def create_image(title, authors, institutions):
     doc.preamble.append(Command("date", NoEscape(r"\today")))  # Use today's date
     doc.append(NoEscape(r"\maketitle"))  # Generate the title
     doc.append(Command("thispagestyle", "empty"))  # Do not show the page number
-    doc.generate_pdf(filename, clean_tex=False)
-    image = list(pdf_to_png(filepath, n_pages=1, alpha=False, resolution=300))[0]
+    with tempfile.NamedTemporaryFile(suffix='.pdf', delete=True) as temp:
+        temp_filename, _ = os.path.splitext(temp.name)
+        doc.generate_pdf(temp_filename, clean_tex=True)
+        image = list(pdf_to_png(temp.name, n_pages=1, alpha=False, resolution=300))[0]
     return image
 
 
